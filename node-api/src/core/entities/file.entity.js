@@ -1,9 +1,9 @@
 module.exports = class FileEntity {
-  constructor(body) {
-    if (body) Object.assign(this, body);
+  constructor (body) {
+    if (body) Object.assign(this, body)
   }
 
-  file;
+  file
 
-  lines = [];
-};
+  lines = []
+}

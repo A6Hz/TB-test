@@ -3,7 +3,11 @@ export class FileEntity {
     if (body) Object.assign(this, body);
   }
 
-  file;
+  fileName;
 
-  lines = [];
+  text;
+
+  number;
+
+  hex;
 }

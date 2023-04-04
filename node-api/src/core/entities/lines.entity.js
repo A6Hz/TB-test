@@ -1,11 +1,11 @@
 module.exports = class LinesEntity {
-  constructor(body) {
-    if (body) Object.assign(this, body);
+  constructor (body) {
+    if (body) Object.assign(this, body)
   }
 
-  text;
+  text
 
-  Number;
+  Number
 
-  hex;
-};
+  hex
+}
