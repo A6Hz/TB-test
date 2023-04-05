@@ -12,7 +12,7 @@ react-app Hexagonal + redux
 | backend  | GET /files/data?fileName=<Nombre del archivo> | OK     |
 | backend  | StandarJs                                     | OK     |
 | frontend | redux                                         | OK     |
-| frontend | tests                                         |        |
+| frontend | tests                                         | OK     |
 | frontend | redux                                         | OK     |
 | frontend | Poder filtrar por "fileName"                  | OK     |
 | global   | Docker                                        | OK     |
