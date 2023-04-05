@@ -3,14 +3,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DarkTable from "../components/table";
 import { useSelector, useDispatch } from "react-redux";
-import { selectFileList, fetchFilesAsync } from "../../application/slice/app";
+import { selectFileList, fetchFilesAsync } from "../slice/app";
 import { useEffect } from "react";
 
 function App() {
   const fileList = useSelector(selectFileList);
   const dispatch = useDispatch();
-
-  console.log("re-render 1");
 
   useEffect(() => {
     dispatch(fetchFilesAsync());

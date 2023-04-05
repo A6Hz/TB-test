@@ -33,12 +33,10 @@ export const filesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchFilesAsync.pending, (state) => {
-        console.log("1");
         state.status = "loading";
         state.value = [];
       })
       .addCase(fetchFilesAsync.fulfilled, (state, action) => {
-        console.log("2");
         state.status = "idle";
         state.value = action.payload;
       });
