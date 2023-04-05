@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 
 function DarkTable(props) {
   return (
-    <Table striped bordered hover variant="dark">
+    <Table striped bordered hover variant="dark" responsive>
       <thead>
         <tr>
           {props.columns.map((column, key) => (
