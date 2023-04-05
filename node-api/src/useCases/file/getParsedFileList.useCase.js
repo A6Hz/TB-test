@@ -3,7 +3,26 @@ const LineEntity = require("../../core/entities/lines.entity");
 const FileEntity = require("../../core/entities/file.entity");
 
 module.exports = class GetParsedFileListUseCase {
-  async execute() {
+  async execute(queryFileName) {
+    if (queryFileName) {
+      return this.getIndividual(queryFileName);
+    }
+
+    return this.getBatch();
+  }
+
+  async getIndividual(fileName) {
+    const result = await axiosInstance.get(`/file/${fileName}`);
+
+    return [
+      new FileEntity({
+        file: fileName,
+        lines: this.parseCSV(result.data),
+      }),
+    ];
+  }
+
+  async getBatch() {
     const result = await axiosInstance.get("/files");
 
     const promises = result.data.files.map((fileName) =>

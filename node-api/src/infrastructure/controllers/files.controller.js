@@ -8,7 +8,9 @@ router.get("/data", async (req, res) => {
   const response = new BaseResponse(res);
 
   try {
-    const result = await new GetParsedFileListUseCase().execute();
+    const result = await new GetParsedFileListUseCase().execute(
+      req.query.fileName
+    );
     return response.ok(result);
   } catch (error) {
     return response.error(error);

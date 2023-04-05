@@ -6,26 +6,23 @@ const initialState = {
   status: "idle",
 };
 
-export const fetchFilesAsync = createAsyncThunk(
-  "file/fetch",
-  async (amount) => {
-    const list = await getFiles(amount);
+export const fetchFilesAsync = createAsyncThunk("file/fetch", async (query) => {
+  const list = await getFiles(query);
 
-    const parsedList = [];
-    list.forEach((item) => {
-      item.lines.forEach((line) => {
-        parsedList.push({
-          fileName: item.file,
-          text: line.text,
-          number: line.number,
-          hex: line.hex,
-        });
+  const parsedList = [];
+  list.forEach((item) => {
+    item.lines.forEach((line) => {
+      parsedList.push({
+        fileName: item.file,
+        text: line.text,
+        number: line.number,
+        hex: line.hex,
       });
     });
+  });
 
-    return parsedList;
-  }
-);
+  return parsedList;
+});
 
 export const filesSlice = createSlice({
   name: "file",
