@@ -1,26 +1,22 @@
 import App from "./application/app";
 import { render, screen } from "@testing-library/react";
 
-jest.mock("axios", () => {
-  return {
-    create: jest.fn(() => ({
-      get: jest.fn(),
-    })),
-  };
-});
+jest.mock("./infrastructure/services/getFiles.service");
 
-jest.mock("axiosInstance", () => {
-  return {
-    get: jest.fn(),
-  };
-});
-
-it("1. first test", () => {
-  let axiosInstance = {
-    get: jest.fn(),
-  };
-
+it("1. Table exist", () => {
   render(<App />);
-  const linkElement = screen.getByText(/File viewer Toolbox/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const table = screen.getByRole("table");
+
+  expect(table).toBeInTheDocument();
+});
+
+it("1. Buttons exist", () => {
+  render(<App />);
+
+  const buttons = screen.getAllByRole("button");
+
+  for (const button of buttons) {
+    expect(button).toBeInTheDocument();
+  }
 });
